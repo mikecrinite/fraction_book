@@ -71,42 +71,38 @@ func TranslateFractionToText(rat big.Rat) string {
 		fmt.Println("The fraction to float conversion was not exact. The text may not have been encoded properly")
 	}
 
-
-	fmt.Println(float_value)
-	curr := float_value
-
-	var tempstr string
 	res_str := ""
-	//var err error
 
 	// This is inefficient but we can just keep converting to a string, splitting at the decimal, and grabbing the first 3 digits
 	// I'm sure there's a way to convert the entire float to a string with no truncation
-	i := 1.0
-	for curr > 0.0 {
-		//TODO: FIGURE OUT HOW NOT TO TRUNCATE THE FLOAT VALUE!!!
 
-		// Format the remaining value as a string
-		tempstr = fmt.Sprintf("%f", curr)
-		// Split the string at the decimal point
-		split := strings.Split(tempstr, ".")
+	// Format the remaining value as a string
+	tempstr := strconv.FormatFloat(float_value, 'f', 99, 64)
+	// Split the string at the decimal point
+	split := strings.Split(tempstr, ".")
+	
+	i := 0
+	j := 3
+
+	for j <= len(tempstr) {
 		// Grab only the first three digits of the string
-		encoded_char := split[1][0:3]
+		encoded_char := split[1][i:j]
 		// decode char
 		decoded_char := string(model.GetCharacterForDecimalValue(encoded_char))
 		// Append decoded_char to res_str
 		res_str += decoded_char
 
-		fmt.Println("-------------------------------")
-		fmt.Println(tempstr)
-		//fmt.Println(encoded_char)
+		i = i + 3
+		j = j + 3
+
+		fmt.Println(split[1])
+		fmt.Println(encoded_char)
 		fmt.Println(decoded_char)
 		fmt.Println(res_str)
-		curr = math.Pow(1000, i) * float_value
-		i++
-		//fmt.Println(encoded_char)
 	}
+	
 
-	return ""
+	return res_str
 }
 
 func TranslateDecimalToText(dec float64) string {

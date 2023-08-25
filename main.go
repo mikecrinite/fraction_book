@@ -12,7 +12,8 @@ func main() {
 }
 
 func doStuff() {
-	str := "This is a test of the emergency alert system."
+	str := "Thisisatestoftheemergencyalertsystem."
+	str = "zzzzzzzzzzzzzzzz"
 
 	// res_dec, err := service.TranslateTextToDecimal(str)
 	// if err != nil {
