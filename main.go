@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 
-	//"github.com/mikecrinite/decimal_book/model"
 	"github.com/mikecrinite/decimal_book/service"
 )
 
@@ -12,23 +11,10 @@ func main() {
 }
 
 func doStuff() {
-	str := "Thisisatestoftheemergencyalertsystem."
-	str = "zzzzzzzzzzzzzzzz"
-
-	// res_dec, err := service.TranslateTextToDecimal(str)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	return
-	// }
+	str := "This is a test of the emergency alert system"
 
 	frac := service.TranslateTextToFraction(str)
-
-	//res_str := service.TranslateTextToDecimalString(str)
-	//fmt.Println(res_dec)
-	//fmt.Println(res_str)
-
-	// convert to fraction as that is the end goal
-	//frac := service.DecimalToFraction(res_dec)
+	
 	res_str := service.TranslateFractionToText(frac)
 
 	fmt.Println("======= Fraction Value: ==========")

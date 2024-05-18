@@ -1,12 +1,12 @@
 package service
 
 import (
-	"strconv"
-	"unicode"
 	"fmt"
 	"math"
 	"math/big"
+	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/mikecrinite/decimal_book/model"
 )
@@ -68,7 +68,7 @@ func TranslateFractionToText(rat big.Rat) string {
 	float_value, exact := rat.Float64()
 
 	if !exact {
-		fmt.Println("The fraction to float conversion was not exact. The text may not have been encoded properly")
+		fmt.Println("The fraction to float conversion was not exact. The text may not have been decoded properly")
 	}
 
 	res_str := ""
@@ -84,7 +84,7 @@ func TranslateFractionToText(rat big.Rat) string {
 	i := 0
 	j := 3
 
-	for j <= len(tempstr) {
+	for j <= len(split[1]) {
 		// Grab only the first three digits of the string
 		encoded_char := split[1][i:j]
 		// decode char
@@ -94,14 +94,8 @@ func TranslateFractionToText(rat big.Rat) string {
 
 		i = i + 3
 		j = j + 3
-
-		fmt.Println(split[1])
-		fmt.Println(encoded_char)
-		fmt.Println(decoded_char)
-		fmt.Println(res_str)
 	}
 	
-
 	return res_str
 }
 
