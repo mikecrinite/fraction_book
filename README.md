@@ -1,11 +1,9 @@
-# decimal_book
+# fraction_book
 
 This came from a tweet or a tumblr post or reddit idk something. 
 The idea is that if you assign each letter, punctuation, and number its own value (i.e. 001, 002, 003), you could turn an entire book into a decimal. Becuase this decimal will always be a rational number, it can be converted into a fraction, and therefore you will have a simple fraction representing an entire book.
 
 Considering how much less space it takes to store a fraction than the entire text, as long as you have the "key" to what is essentially a cryptographic cipher, you could easily turn it back into text by converting from the fraction back into a decimal and parsing that decimal using the key.
-
-I called it decimal_book but I really meant fraction_book. I'm not changing it, you get the idea
 
 ## Problems
 Unfortunately, I forgot that decimal precision would be an issue. As far as I can tell, there is no way to have infinite precision in golang in any built-in classes. This means that we're always going to be limited in the length of the book, and sadly that limit is very low when you consider that each character is 3 decimal places long.
