@@ -13,7 +13,7 @@ func TestTranslateTextToDecimal(t *testing.T) {
 
 	for _, test := range table {
 		t.Run(test.input, func(t *testing.T) {
-			str := TranslateTextToDecimalString(test.input)
+			str := TextToDecimalString(test.input)
 
 			if str != test.expected {
 				t.Errorf("Expected=" + test.expected + ", Actual=" + str)

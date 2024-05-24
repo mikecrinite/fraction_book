@@ -11,6 +11,19 @@ I hope someone comes along and looks at this and thinks "actually Mike, you're d
 
 Please feel free to submit any suggestions/solutions/criticisms/etc as well, or to just chastise me for taking the easy way out and asking ChatGPT for help
 
+## Example output
+Take a peek at `main.go` for an explanation, although I guess the printlns kinda explain it too...
+```
+======= Decimal String: ==========
+0.020058059069000059069000051000070055069070000065056000070058055000055063055068057055064053075000051062055068070000069075069070055063
+======= Text From Decimal String: ==========
+This is a test of the emergency alert system
+======= Fraction String: ==========
+20058059069000059069000051000070055069070000065056000070058055000055063055068057055064053075000051062055068070000069075069070055063/1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+======== Result Text: ===========
+This is a test of the emergency alert system
+```
+
 ## Ideas worth exploring at a later date?
 - Since we know the denominator will pretty much always be 10^n, we could technically just represent the fraction in scientific notation, i.e. numeratorE10^n or whatever... been a while since I did that and again, it wouldn't make it efficient enough space-wise to be a practical storage solution for text
 
